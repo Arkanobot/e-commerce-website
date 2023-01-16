@@ -1,0 +1,45 @@
+.home {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+}
+
+.home__row {
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.home__image {
+  height: 300px;
+  width: 100%;
+  z-index: -1;
+  margin-bottom: -100px; /* makes the margin get into the image*/
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  ); /* masks the image to fade into white*/
+}
+
+@media screen and (max-width: 450px) {
+  .home__image {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .home__image {
+    width: 1000px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .home__image {
+    width: 1600px;
+  }
+}

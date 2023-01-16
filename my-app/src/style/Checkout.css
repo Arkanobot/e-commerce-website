@@ -1,0 +1,35 @@
+:root {
+  --bg-blue: #004aad;
+  --bg-grey-white: rgb(234, 237, 237);
+  --color-leaf-green: #7ed957;
+  --color-torq-blue: #00c2cb;
+  --color-light-blue: #38b6ff;
+  --color-white: #ffffff;
+}
+
+.checkout {
+  display: flex;
+  padding: 20px;
+  background-color: var(--bg-grey-white);
+  height: max-content;
+}
+
+.checkout__banner {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.checkout__title {
+  margin-right: 10px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.checkout__left {
+  flex-grow: 2;
+}
+
+.checkout__right {
+  flex-grow: 1;
+  flex-shrink: 3;
+}
