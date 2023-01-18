@@ -1,44 +1,40 @@
-import {
-  ADD_TO_BASKET,
-  REM_FROM_BASKET,
-  SET_USER,
-} from "./constants/constants";
+import { ADD_TO_CART, REM_FROM_CART, SET_USER } from "./constants/constants";
 
 export const initialState = {
-  basket: [],
+  cart: [],
   user: null,
 };
 
 //selector
-export const getBasketTotal = (basket) =>
-  basket?.reduce((amount, value) => value.price + amount, 0);
+export const getcartTotal = (cart) =>
+  cart?.reduce((amount, value) => value.price + amount, 0);
 
 const reducer = (state, action) => {
   console.log(action);
   switch (action.type) {
-    case ADD_TO_BASKET:
+    case ADD_TO_CART:
       return {
         ...state,
-        basket: [...state.basket, action.item],
+        cart: [...state.cart, action.item],
       };
 
-    case REM_FROM_BASKET:
-      const index = state.basket.findIndex(
-        (basketItem) => basketItem.id === action.id
+    case REM_FROM_CART:
+      const index = state.cart.findIndex(
+        (cartItem) => cartItem.id === action.id
       );
-      let newBasket = [...state.basket];
+      let newcart = [...state.cart];
       if (index >= 0) {
-        // found the item inside the basket
-        newBasket.splice(index, 1);
+        // found the item inside the cart
+        newcart.splice(index, 1);
       } else {
         console.warn(
-          `Cant remove product (id: ${action.id}) as it is not in the basket`
+          `Cant remove product (id: ${action.id}) as it is not in the cart`
         );
       }
 
       return {
         ...state,
-        basket: newBasket,
+        cart: newcart,
       };
 
     case SET_USER:
@@ -46,7 +42,7 @@ const reducer = (state, action) => {
         ...state,
         user: action.user,
       };
-    //... return state, basket:state.basket.filter(item=> item.id != action.id)
+    //... return state, cart:state.cart.filter(item=> item.id != action.id)
 
     default:
       return state;

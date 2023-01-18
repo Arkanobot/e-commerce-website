@@ -3,16 +3,16 @@ import "../style/Product.css";
 import StarIcon from "@mui/icons-material/Star";
 // import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { useStateValue } from "./StateProvider";
-import { ADD_TO_BASKET } from "./constants/constants";
+import { ADD_TO_CART } from "./constants/constants";
 
 function Product({ id, title, image, price, rating }) {
   /* creating a state */
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ cart }, dispatch] = useStateValue();
 
-  const addToBasket = () => {
+  const addTocart = () => {
     //dispatch the item to the context
     dispatch({
-      type: ADD_TO_BASKET,
+      type: ADD_TO_CART,
       item: {
         id: id,
         title: title,
@@ -39,7 +39,7 @@ function Product({ id, title, image, price, rating }) {
         </div>
       </div>
       <img src={image} alt={title} />
-      <button onClick={addToBasket}>Add to Basket</button>
+      <button onClick={addTocart}>Add to Cart</button>
     </div>
   );
 }

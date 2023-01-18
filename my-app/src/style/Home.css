@@ -34,7 +34,7 @@
 
 @media screen and (min-width: 1000px) {
   .home__image {
-    width: 1000px;
+    width: 100%;
   }
 }
 

@@ -7,12 +7,12 @@ import CheckoutProduct from "./CheckoutProduct";
 import checkoutBannerEmpty from "../img/empty_checkout_banner.png";
 
 function Checkout() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ cart, user }, dispatch] = useStateValue();
 
   return (
     <div className="checkout__main">
       <div className="checkout__img">
-        {basket?.length >= 1 ? (
+        {cart?.length >= 1 ? (
           <img
             src={checkoutBanner}
             alt="Did you Miss Anything ?"
@@ -37,9 +37,9 @@ function Checkout() {
                 : ` ${user?.email}`
               : `Guest`}
           </h3>
-          <h2 className="checkout__title">Your shopping Basket</h2>
+          <h2 className="checkout__title">Your shopping cart</h2>
           {/* checkout product here */}
-          {basket.map((item) => (
+          {cart.map((item) => (
             <CheckoutProduct
               id={item.id}
               title={item.title}

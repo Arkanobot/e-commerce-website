@@ -8,9 +8,10 @@ import Login from "./components/Login";
 import { auth } from "./components/firebase";
 import { useStateValue } from "./components/StateProvider";
 import { SET_USER } from "./components/constants/constants";
+import ProductPage from "./components/ProductPage";
 
 function App() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ cart }, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -36,6 +37,16 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        {/* this has to be changed and made relative!!!! */}
+        <Route
+          path="/product"
+          element={
+            <>
+              <Header />
+              <ProductPage />
+            </>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route
           path="/checkout"

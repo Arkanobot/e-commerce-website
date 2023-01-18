@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 function Header() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ cart, user }, dispatch] = useStateValue();
 
   const authHandler = () => {
     if (user) {
@@ -52,10 +52,10 @@ function Header() {
           <span className="header__optionLineTwo">Prime</span>
         </div> */}
         <Link to="/checkout">
-          <div className="header__optionBasket">
+          <div className="header__optioncart">
             <ShoppingCartIcon />
-            <span className="header__optionLineTwo header__basketCount">
-              {basket?.length}
+            <span className="header__optionLineTwo header__cartCount">
+              {cart?.length}
             </span>
           </div>
         </Link>

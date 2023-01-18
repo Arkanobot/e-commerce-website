@@ -2,16 +2,16 @@ import React from "react";
 import "../style/CheckoutProduct.css";
 import StarIcon from "@mui/icons-material/Star";
 import { useStateValue } from "./StateProvider";
-import { REM_FROM_BASKET } from "./constants/constants";
+import { REM_FROM_CART } from "./constants/constants";
 // import StarHalfIcon from "@mui/icons-material/StarHalf";
 
 function CheckoutProduct({ id, image, title, price, rating }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ cart }, dispatch] = useStateValue();
 
-  const removeFromBasket = () => {
-    //remove the item from the basket
+  const removeFromcart = () => {
+    //remove the item from the cart
     dispatch({
-      type: REM_FROM_BASKET,
+      type: REM_FROM_CART,
       id: id,
     });
   };
@@ -31,7 +31,7 @@ function CheckoutProduct({ id, image, title, price, rating }) {
               <StarIcon className="product__ratingStar" />
             ))}
         </div>
-        <button onClick={removeFromBasket}>Remove from Basket</button>
+        <button onClick={removeFromcart}>Remove from cart</button>
       </div>
     </div>
   );
